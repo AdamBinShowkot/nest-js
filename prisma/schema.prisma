@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// datasource db {
+//   provider = "mysql"
+//   url      = "mysql://root:Deen@1909@localhost:3306/nestjs"
+// }
+// datasource db {
+//   provider = "sqlserver"
+//   url      =  "sqlserver://202.22.203.92:1433;database={AsibTest};user={sa};password={w23eW@#E;};encrypt={true};trustServerCertificate={true};"
+// }
+datasource db {
+  provider = "sqlserver"
+  url      =  "sqlserver://202.22.203.92:1433;database={AsibTest};user={sa};password={w23eW@#E};encrypt={true};trustServerCertificate={true};"
+}
+
+model User{
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  email String
+  hash String
+
+  firsName String?
+  lastName String?
+}
+
+model Bookmark{
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title String
+  description String?
+  link String
+}
